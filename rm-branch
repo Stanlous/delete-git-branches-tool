@@ -1,0 +1,79 @@
+#!/bin/bash
+
+getParams () {
+  while true; 
+  do
+    if [[ $# -eq 0 ]]; then
+      break
+    fi
+    case $1 in
+      -k|--key)
+        if [ "$2" ]; 
+        then
+          branchKeyword=$2
+          shift
+        else
+          echo 'ERROR: "-k|--key" requires a non-empty option argument.'
+          exit 1
+        fi
+        ;;
+      --key=?*)
+        branchKeyword=${1#*=}
+        ;;
+      -|-?*)
+        printf 'WARN: Unknown option (ignored): %s\n' "$1" >&2
+        ;; 
+      *)
+        branchNames[$branchNamesIndex]=$1
+        branchNamesIndex=$(($branchNamesIndex + 1))
+        ;;
+    esac
+    shift
+  done
+
+  echo '-----branches----'
+  for i in ${branchNames[@]}
+  do
+    echo $i
+  done
+
+  echo '-------key-----'
+  echo $branchKeyword
+}
+
+
+
+declare -a branchNames 
+branchKeyword=
+branchNamesIndex=0
+
+getParams $@
+
+
+
+# result=$(git branch | grep test)
+# branches=${result//\*/}
+# echo $branches
+# for branch in $branches
+# do
+#   echo $branch
+# done
+
+# loop=true
+# while true;
+# do
+#   read -p "Are you sure you want to delete them? [y/n]: " input
+#   case $input in
+#     [yY][eE][sS]|[yY])
+#     echo 'yes'
+#     loop=false
+#     ;;
+#     [nN][oO]|[nN])
+#     echo 'no'
+#     loop=false
+#     ;;
+#     *)
+#     echo "Please enter 'y' or 'n' !"
+#     ;;
+#   esac
+# done
