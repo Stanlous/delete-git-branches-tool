@@ -31,14 +31,14 @@ getParams () {
     shift
   done
 
-  echo '-----branches----'
-  for i in ${branchNames[@]}
-  do
-    echo $i
-  done
+  # echo '-----branches----'
+  # for i in ${branchNames[@]}
+  # do
+  #   echo $i
+  # done
 
-  echo '-------key-----'
-  echo $branchKeyword
+  # echo '-------key-----'
+  # echo $branchKeyword
 }
 
 checkParams () {
@@ -49,17 +49,14 @@ checkParams () {
   fi
 }
 
-# showBranches () {
-
-# }
-
-# ensure () {
-
-# }
-
-# deleteBranches () {
-
-# }
+showBranches () {
+  echo ---- branches to be deleted -----
+  for branch in $branchesToBeDeleted
+  do
+    echo $branch
+  done
+  echo ---------------------------------
+}
 
 setBranches () {
   if [[ "$branchKeyword" ]];
@@ -69,10 +66,28 @@ setBranches () {
   else
     branchesToBeDeleted=${branchNames[@]}
   fi
-  echo ---- branches to be deleted -----
-  for branch in $branchesToBeDeleted
+}
+
+delete () {
+  echo delete
+}
+
+deleteBranches () {
+  while true;
   do
-    echo $branch
+    read -p "Are you sure you want to delete them? [y/n]: " input
+    case $input in
+      [yY][eE][sS]|[yY])
+      delete
+      exit 0
+      ;;
+      [nN][oO]|[nN])
+      exit 0
+      ;;
+      *)
+      echo "Please enter 'y' or 'n' !"
+      ;;
+    esac
   done
 }
 
@@ -86,26 +101,7 @@ branchKeyword=
 getParams $@
 checkParams 
 setBranches
+showBranches
+deleteBranches
 
 
-
-
-
-# loop=true
-# while true;
-# do
-#   read -p "Are you sure you want to delete them? [y/n]: " input
-#   case $input in
-#     [yY][eE][sS]|[yY])
-#     echo 'yes'
-#     loop=false
-#     ;;
-#     [nN][oO]|[nN])
-#     echo 'no'
-#     loop=false
-#     ;;
-#     *)
-#     echo "Please enter 'y' or 'n' !"
-#     ;;
-#   esac
-# done
