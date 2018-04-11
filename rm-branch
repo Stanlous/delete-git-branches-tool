@@ -69,10 +69,10 @@ setBranches () {
   else
     branchesToBeDeleted=${branchNames[@]}
   fi
-
+  echo ---- branches to be deleted -----
   for branch in $branchesToBeDeleted
   do
-    echo $branch 'to be deleted'
+    echo $branch
   done
 }
 
