@@ -41,23 +41,55 @@ getParams () {
   echo $branchKeyword
 }
 
+checkParams () {
+  if [[ ! "$branchKeyword" && "${#branchNames[@]}" -eq 0 ]]; 
+  then 
+    echo 'Error: No argument found!'
+    exit 1
+  fi
+}
+
+# showBranches () {
+
+# }
+
+# ensure () {
+
+# }
+
+# deleteBranches () {
+
+# }
+
+setBranches () {
+  if [[ "$branchKeyword" ]];
+  then
+    result=$(git branch | grep "$branchKeyword")
+    branchesToBeDeleted=${result//\*/}
+  else
+    branchesToBeDeleted=${branchNames[@]}
+  fi
+
+  for branch in $branchesToBeDeleted
+  do
+    echo $branch 'to be deleted'
+  done
+}
 
 
 declare -a branchNames 
-branchKeyword=
+declare -a branchesToBeDeleted 
 branchNamesIndex=0
+branchKeyword=
+
 
 getParams $@
+checkParams 
+setBranches
 
 
 
-# result=$(git branch | grep test)
-# branches=${result//\*/}
-# echo $branches
-# for branch in $branches
-# do
-#   echo $branch
-# done
+
 
 # loop=true
 # while true;
