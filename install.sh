@@ -1,7 +1,7 @@
 #!/bin/bash
 
-myUrl=$(pwd)
-url="${myUrl}/rm-branch"
-sudo chmod +x $url
-sudo ln -s $url /usr/local/bin/rm-branch
-echo /usr/local/bin/rm-branch
+current=$(pwd)
+path="${current}/rm-branch"
+sudo chmod +x $path
+sudo ln -s $path /usr/local/bin/rm-branch
+echo 'Installed in /usr/local/bin/rm-branch'
