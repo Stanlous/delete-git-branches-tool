@@ -7,6 +7,9 @@ getParams () {
       break
     fi
     case $1 in
+      -f|--force)
+        forceDelete=true
+        ;;
       -k|--key)
         if [ "$2" ]; 
         then
@@ -74,7 +77,12 @@ delete () {
     echo
     echo ---------- delete $branch-----------
     echo "delete local:"
-    git branch -d $branch
+    if [[ "$forceDelete" ]]; 
+    then
+      git branch -D $branch
+    else
+      git branch -d $branch
+    fi
     echo
     echo "delete remote:"
     git push origin :$branch
@@ -107,6 +115,7 @@ declare -a branchNames
 declare -a branchesToBeDeleted 
 branchNamesIndex=0
 branchKeyword=
+forceDelete=
 
 
 getParams $@
