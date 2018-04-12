@@ -1,16 +1,16 @@
 # delete-git-branches-tool
 A tool to delete git local and remote branches in batch.
 
+# Introduction
+![a](https://raw.githubusercontent.com/Stanlous/delete-git-branches-tool/master/img/introduction-a.png)
+![b](https://raw.githubusercontent.com/Stanlous/delete-git-branches-tool/master/img/introduction-b.png)
+
 # Install
 ```sh
 git clone https://github.com/Stanlous/delete-git-branches-tool.git
 cd delete-git-branches-tool
 sh install.sh # root permission are required
 ```
-# Introduction
-![a](https://raw.githubusercontent.com/Stanlous/delete-git-branches-tool/master/img/introduction-a.png)
-![b](https://raw.githubusercontent.com/Stanlous/delete-git-branches-tool/master/img/introduction-b.png)
-
 # Usage
 ```sh
 # delete branches which branch name include 'test'
