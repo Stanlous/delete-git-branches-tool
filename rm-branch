@@ -53,6 +53,11 @@ checkParams () {
 }
 
 showBranches () {
+  if [[ "${#branchesToBeDeleted[@]}" -eq 0 || -z $branchesToBeDeleted ]]; 
+  then
+    echo No branch found.
+    exit 0
+  fi
   echo ---- Branches to be deleted -----
   for branch in $branchesToBeDeleted
   do
