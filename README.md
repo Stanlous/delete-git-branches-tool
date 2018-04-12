@@ -13,12 +13,12 @@ sh install.sh # root permission are required
 ```
 # Usage
 ```sh
-# delete branches which branch name include 'test'
+# delete branches that contain 'test' in the branch name
 rm-branch -k test | rm-branch --key test  |  rm-branch --key=test 
 
 # delete branch1、branch2、branch3
 rm-branch branch1 branch2 branch3
 
-# force delete branches which branch name include 'test'
+# force delete branches that contain 'test' in the branch name
 rm-branch -f --key test |  rm-branch --force --key test
 ```
