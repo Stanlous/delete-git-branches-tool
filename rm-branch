@@ -50,7 +50,7 @@ checkParams () {
 }
 
 showBranches () {
-  echo ---- branches to be deleted -----
+  echo ---- Branches to be deleted -----
   for branch in $branchesToBeDeleted
   do
     echo $branch
@@ -69,7 +69,18 @@ setBranches () {
 }
 
 delete () {
-  echo delete
+  for branch in $branchesToBeDeleted
+  do
+    echo
+    echo ---------- delete $branch-----------
+    echo "delete local:"
+    git branch -d $branch
+    echo
+    echo "delete remote:"
+    git push origin :$branch
+    echo -----------------------------------
+    echo
+  done
 }
 
 deleteBranches () {
