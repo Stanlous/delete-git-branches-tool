@@ -22,3 +22,5 @@ rm-branch branch1 branch2 branch3
 # force delete branches that contain 'test' in the branch name
 rm-branch -f --key test |  rm-branch --force --key test
 ```
+# License
+MIT
