@@ -9,7 +9,7 @@ A tool to delete git local and remote branches in batch.
 ```sh
 git clone https://github.com/Stanlous/delete-git-branches-tool.git
 cd delete-git-branches-tool
-sh install.sh # root permission are required
+sh install.sh # root permission is required
 ```
 # Usage
 ```sh
