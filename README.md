@@ -1,5 +1,5 @@
 # delete-git-branches-tool
-A tool to delete git local and remote branches in batch.
+A tool to delete local and remote git branches in batch.
 
 # Overview
 ![a](https://raw.githubusercontent.com/Stanlous/delete-git-branches-tool/master/img/introduction-a.png)
